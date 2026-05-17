@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    />
+
+    <style type="text/tailwindcss">
+      @theme {
+        --color-primary: #ef4444;
+        --color-secondary: #ff8080;
+      }
+    </style>
+
+    <title>About Me</title>
+  </head>
+
+  <body class="bg-secondary">
+    <div class="min-h-screen flex flex-col">
+      <!-- Header -->
+      <header class="bg-primary flex items-center justify-between py-3 px-6">
+        <div class="w-10">
+          <a href="./index.html">
+            <img src="./blood_donation_logo-removebg-preview.png" alt="logo" />
+          </a>
+        </div>
+
+        <div
+          id="toggle-menu"
+          class="flex flex-col items-center gap-3 bg-primary font-bold absolute right-0 left-0 -top-100 py-2 px-4 sm:static sm:flex-row sm:bg-transparent"
+        >
+          <a href="./index.html">HOME</a>
+          <a href="./registration.html">REGISTRATION</a>
+          <a href="./needBlood.html">NEED BLOOD</a>
+          <a href="./about.html"> ABOUT </a>
+        </div>
+
+        <i id="toggle-button" class="fa-solid fa-bars text-lg sm:!hidden"></i>
+      </header>
+
+      <!-- Main -->
+      <main class="grow px-4 py-10">
+        <div class="max-w-4xl mx-auto bg-white shadow-lg rounded-2xl p-8">
+          <h1 class="text-4xl font-bold text-center text-red-500 mb-6">
+            About Me
+          </h1>
+
+          <div class="space-y-5 text-gray-700 leading-7">
+            <p>
+              Hello! My name is
+              <span class="font-bold">Shivam Sariyam</span>. I am a passionate
+              student and beginner web developer from Madhya Pradesh, India.
+            </p>
+
+            <p>
+              I have completed my
+              <span class="font-bold">12th class</span>
+              from Government Higher Secondary School, Harnagaon.
+            </p>
+
+            <p>
+              I started learning coding in class 11 after getting inspired by my
+              teacher. I joined CodeYogi on February 12, 2024, where I learned
+              HTML, CSS, JavaScript and currently I am learning React.
+            </p>
+
+            <p>
+              I enjoy building websites and improving my coding skills through
+              projects and regular practice.
+            </p>
+          </div>
+
+          <!-- Skills -->
+          <div class="mt-10">
+            <h2 class="text-2xl font-bold text-red-500 mb-4">My Skills</h2>
+
+            <div class="flex flex-wrap gap-3">
+              <span class="bg-red-100 text-red-500 px-4 py-2 rounded-full">
+                HTML
+              </span>
+
+              <span class="bg-red-100 text-red-500 px-4 py-2 rounded-full">
+                CSS
+              </span>
+
+              <span class="bg-red-100 text-red-500 px-4 py-2 rounded-full">
+                JavaScript
+              </span>
+
+              <span class="bg-red-100 text-red-500 px-4 py-2 rounded-full">
+                Tailwind CSS
+              </span>
+
+              <span class="bg-red-100 text-red-500 px-4 py-2 rounded-full">
+                React
+              </span>
+            </div>
+          </div>
+
+          <!-- Goal -->
+          <div class="mt-10">
+            <h2 class="text-2xl font-bold text-red-500 mb-4">My Goal</h2>
+
+            <p class="text-gray-700 leading-7">
+              My goal is to become a successful web developer and support my
+              family financially. I also want to continue learning modern
+              technologies and build useful projects.
+            </p>
+          </div>
+
+          <!-- Project -->
+          <div class="mt-10">
+            <h2 class="text-2xl font-bold text-red-500 mb-4">
+              About This Project
+            </h2>
+
+            <p class="text-gray-700 leading-7">
+              This Blood Donation project helps users find blood donors easily
+              during emergencies. Users can register as donors, search blood
+              groups, and request blood quickly.
+            </p>
+          </div>
+        </div>
+      </main>
+
+      <!-- Footer -->
+      <footer class="bg-gray-800 text-white text-center py-4">
+        <p>&copy; 2026 Blood Donation. All rights reserved.</p>
+      </footer>
+    </div>
+
+    <script>
+      const togglebtn = document.getElementById("toggle-button");
+
+      const dropDown = document.getElementById("toggle-menu");
+
+      togglebtn.addEventListener("click", function () {
+        dropDown.classList.toggle("top-21");
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style type="text/tailwindcss">
+      @theme {
+        --color-primary: #ef4444;
+        --color-secondary: #ff8080;
+      }
+    </style>
+    <title>Blood Donation - Registration</title>
+  </head>
+  <body class="bg-secondary">
+    <div id="container" class="min-h-screen flex flex-col">
+      <!-- header -->
+      <header class="bg-primary flex items-center justify-between py-3 px-6">
+        <div class="w-9">
+          <a href="./index.html" class="w-full">
+            <img src="./blood_donation_logo-removebg-preview.png" alt="logo" />
+          </a>
+        </div>
+        <div
+          id="toggle-menu"
+          class="flex flex-col items-center gap-3 bg-primary font-bold absolute right-0 left-0 -top-100 py-2 px-4 sm:static sm:flex-row sm:gap-4 sm:py-0 sm:px-0 sm:bg-transparent"
+        >
+          <a href="./index.html">HOME </a>
+          <a href="./registration.html">REGISTRATION </a>
+          <a href="./needBlood.html"> NEED BLOOD </a>
+          <a href="./about.html"> ABOUT </a>
+        </div>
+        <i id="toggle-button" class="fa-solid fa-bars text-lg sm:!hidden"></i>
+      </header>
+      <!-- main -->
+      <div class="grow p-6">
+        <div id="showResults"></div>
+      </div>
+      <!-- footer -->
+      <footer class="bg-gray-800 text-gray-200 py-4 text-center">
+        <p>&copy; 2026 Blood Donation. All rights reserved.</p>
+      </footer>
+    </div>
+    <script>
+      const togglebtn = document.getElementById("toggle-button");
+      const dropDown = document.getElementById("toggle-menu");
+
+      togglebtn.addEventListener("click", function () {
+        dropDown.classList.toggle("top-21");
+      });
+
+      let donors = JSON.parse(localStorage.getItem("donors")) || [];
+
+      let bloodGroup = localStorage.getItem("searchBlood");
+
+      let showResults = document.getElementById("showResults");
+
+      let filteredDonors = donors.filter(function (donor) {
+        return donor.bloodType === bloodGroup;
+      });
+
+      filteredDonors.forEach(function (element) {
+        if (element.bloodType === bloodGroup) {
+          showResults.innerHTML += `
+
+    <div class="bg-white flex flex-col items-start gap-1 sm:w-xl mx-auto shadow-md rounded-lg p-4 mb-4">
+
+      <h3 class="text-lg font-bold">${element.name}</h3>
+
+      <p class="text-gray-600">${element.address}</p>
+
+      <p class="font-semibold">${element.bloodType}</p>
+      <div>
+      <a href="tel:${element.phone}" class="text-blue-500 hover:text-blue-700">
+        <i class="fa-solid fa-phone"></i> Call
+      </a>
+      <div class="inline-block border-x-2 border-black px-1 pt-4 mx-2"> </div>
+      <a href="mailto:${element.email}" class="text-blue-500 hover:text-blue-700 ">
+        <i class="fa-solid fa-envelope"></i> Email 
+      </a>
+      </div>
+    </div>
+
+  `;
+        } else {
+          showResults.innerHTML = `<p class="text-center text-red-500">No donors found with blood group ${bloodGroup}.</p>`;
+        }
+      });
+    </script>
+  </body>
+</html>
